@@ -1,13 +1,25 @@
-import React from 'react';
-import styles from './quiz_detail.module.css';
+import React from "react";
+import styles from "./quiz_detail.module.css";
 
+const QuizDetail = ({ quiz_data }) => {
+  const { type, contents } = quiz_data;
+  const videoURL = type === 'video' ? `https://www.youtube.com/embed/${contents}` : null;
 
-const QuizDetail = () => {
-    return (
-        <div className={styles.detail}>
-            <img src="/images/quiz/son.PNG" alt=""/>
-        </div>
-    );
+  return (
+    <div className={styles.detail}>
+      {type === "image" && contents.map((content, index) => <img key={index} src={content} alt="quiz" />)}
+      {videoURL &&
+        <iframe
+          width="560"
+          height="315"
+          src={videoURL}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      }
+    </div>
+  );
 };
 
 export default QuizDetail;
