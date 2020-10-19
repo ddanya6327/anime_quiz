@@ -5,6 +5,8 @@ import QuizDetail from "../../components/quiz_detail/quiz_detail";
 import QuizAnswer from "../../components/quiz_answer/quiz_answer";
 
 const Quiz = () => {
+
+
   return (
       <section className={styles.quiz}>
         <QuizTitle />
