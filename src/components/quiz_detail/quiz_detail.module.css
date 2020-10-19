@@ -1,4 +1,12 @@
 .detail {
+    display: flex;
+    flex-direction: column;
     margin: 1em;
     text-align: center;
+}
+
+.quiz_image {
+    display: block;
+    margin: auto;
+    max-width: 100%;
 }

@@ -7,7 +7,7 @@ const QuizDetail = ({ quiz_data }) => {
 
   return (
     <div className={styles.detail}>
-      {type === "image" && contents.map((content, index) => <img key={index} src={content} alt="quiz" />)}
+      {type === "image" && contents.map((content, index) => <img className={styles.quiz_image} key={index} src={content} alt="quiz" />)}
       {videoURL &&
         <iframe
           width="560"
