@@ -6,14 +6,50 @@ import QuizAnswer from "../../components/quiz_answer/quiz_answer";
 import test_quiz from "../../common/test_quiz/test1";
 
 const Quiz = () => {
-  const [quizCounter, setQuizCounter] = useState(0);
-  const { title, quiz_data, answer_data } = test_quiz["quizzes"][quizCounter];
+  const [currentQuizCounter, setQuizCounter] = useState(0);
+  const [userAnswer, setUserAnswer] = useState([]);
+  const [lastQuestion, setLastQuestion] = useState(false);
+  const { quizzes } = test_quiz;
+  const { title, quiz_data, answer_data } = quizzes[currentQuizCounter];
+  const quizCount = quizzes.length;
+
+  const handleQuizCounter = () => {
+    setQuizCounter(currentQuizCounter + 1);
+  };
+
+  const recordUserAnswer = (userSelect) => {
+    setUserAnswer([...userAnswer, userSelect]);
+  };
+
+  const handleLastQuestion = () => {
+    setLastQuestion(true);
+  };
+
+  const handleAnswerItem = (e) => {
+    const selectQuestion = e.currentTarget.dataset.question;
+    recordUserAnswer(selectQuestion);
+
+    if (quizCount - 1 === currentQuizCounter) {
+      handleLastQuestion();
+    } else {
+      handleQuizCounter();
+    }
+  };
 
   return (
     <section className={styles.quiz}>
-      <QuizTitle title={title} />
-      <QuizDetail quiz_data={quiz_data} />
-      <QuizAnswer answer_data={answer_data} />
+      {lastQuestion ? (
+        <div>{userAnswer}</div>
+      ) : (
+        <>
+          <QuizTitle title={title} />
+          <QuizDetail quiz_data={quiz_data} />
+          <QuizAnswer
+            answer_data={answer_data}
+            handleAnswerItem={handleAnswerItem}
+          />
+        </>
+      )}
     </section>
   );
 };

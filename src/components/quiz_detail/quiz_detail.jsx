@@ -10,7 +10,7 @@ const QuizDetail = ({ quiz_data }) => {
       {type === "image" && contents.map((content, index) => <img className={styles.quiz_image} key={index} src={content} alt="quiz" />)}
       {videoURL &&
         <iframe
-          width="560"
+          width="100%"
           height="315"
           src={videoURL}
           frameBorder="0"
