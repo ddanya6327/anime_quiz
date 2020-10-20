@@ -4,6 +4,7 @@ import QuizTitle from "../../components/quiz_title/quiz_title";
 import QuizDetail from "../../components/quiz_detail/quiz_detail";
 import QuizAnswer from "../../components/quiz_answer/quiz_answer";
 import test_quiz from "../../common/test_quiz/test1";
+import QuizResult from "../../components/quiz_result/quiz_result";
 
 const Quiz = () => {
   const [currentQuizCounter, setQuizCounter] = useState(0);
@@ -39,7 +40,11 @@ const Quiz = () => {
   return (
     <section className={styles.quiz}>
       {lastQuestion ? (
-        <div>{userAnswer}</div>
+        <QuizResult
+          userAnswer={userAnswer}
+          quizCount={quizCount}
+          quizzes={quizzes}
+        />
       ) : (
         <>
           <QuizTitle title={title} />
