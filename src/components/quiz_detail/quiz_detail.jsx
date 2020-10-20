@@ -9,6 +9,7 @@ const QuizDetail = ({ quiz_data }) => {
     <div className={styles.detail}>
       {type === "image" && contents.map((content, index) => <img className={styles.quiz_image} key={index} src={content} alt="quiz" />)}
       {videoURL &&
+      // eslint-disable-next-line
         <iframe
           width="100%"
           height="315"
