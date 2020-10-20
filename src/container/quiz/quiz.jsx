@@ -3,8 +3,8 @@ import styles from "./quiz.module.css";
 import QuizTitle from "../../components/quiz_title/quiz_title";
 import QuizDetail from "../../components/quiz_detail/quiz_detail";
 import QuizAnswer from "../../components/quiz_answer/quiz_answer";
-import test_quiz from "../../common/test_quiz/test1";
 import QuizResult from "../../components/quiz_result/quiz_result";
+import test_quiz from "../../common/test_quiz/test1";
 
 const Quiz = () => {
   const [currentQuizCounter, setQuizCounter] = useState(0);
