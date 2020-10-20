@@ -5,7 +5,7 @@ const test_quiz = {
       "title": "다음 캐릭터의 이름은?",
       "quiz_data": {
         "type": "image",
-        "contents": ["/images/quiz/son.PNG", "/images/quiz/son.PNG"]
+        "contents": ["/images/quiz/son.PNG", "/images/quiz/son1.PNG"]
       },
       "answer_data": {
         "type": "multiple",

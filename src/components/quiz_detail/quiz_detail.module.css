@@ -8,6 +8,6 @@
 
 .quiz_image {
     display: block;
-    margin: auto;
+    margin: 0.3em auto;
     max-width: 100%;
 }
