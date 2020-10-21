@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./quiz_result.module.css";
+import { Link } from "react-router-dom";
 
 const QuizResult = ({ userAnswer, quizCount, quizzes }) => {
   const answers = quizzes.map((item) => item["answer_data"]["answer"]);
@@ -24,6 +25,9 @@ const QuizResult = ({ userAnswer, quizCount, quizzes }) => {
       <h3 className={styles.score}>
         {scoring}/{quizCount}
       </h3>
+      <Link to={"/list"}>
+        <button className={styles.backButton}>메인으로</button>
+      </Link>
     </section>
   );
 };

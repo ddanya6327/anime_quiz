@@ -10,9 +10,11 @@ const ListItem = ({ item }) => {
         <img className={styles.item_image} src={thumbnail} alt="" />
       </div>
       <p className={styles.title}>{quiz_title}</p>
-      <Link to={`/quiz/${id}`}>
-        <button className={styles.button}>퀴즈 시작</button>
-      </Link>
+      <div>
+        <Link to={`/quiz/${id}`}>
+          <button className={styles.button}>퀴즈 시작</button>
+        </Link>
+      </div>
     </li>
   );
 };

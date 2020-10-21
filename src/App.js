@@ -12,6 +12,9 @@ function App() {
           <Route exact path="/">
             <List />
           </Route>
+          <Route path="/list">
+            <List />
+          </Route>
           <Route path="/quiz/:id">
             <Quiz />
           </Route>
