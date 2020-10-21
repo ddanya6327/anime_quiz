@@ -1,13 +1,22 @@
-import React from 'react';
-import './App.css';
-import Header from "./container/header/header";
+import React from "react";
+import "./App.css";
 import Quiz from "./container/quiz/quiz";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import List from "./container/list/list";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Quiz />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <List />
+          </Route>
+          <Route path="/quiz">
+            <Quiz />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

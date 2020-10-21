@@ -1,4 +1,7 @@
 .quiz {
-    padding: 1em;
     background-color: aliceblue;
+}
+
+.content {
+    padding: 1em;
 }
