@@ -4,14 +4,16 @@ import QuizTitle from "../../components/quiz_title/quiz_title";
 import QuizDetail from "../../components/quiz_detail/quiz_detail";
 import QuizAnswer from "../../components/quiz_answer/quiz_answer";
 import QuizResult from "../../components/quiz_result/quiz_result";
-import test_quiz from "../../common/test_quiz/test1";
 import Header from "../header/header";
+import { useParams } from "react-router-dom";
+import test_quiz from "../../common/test_quiz/test1";
 
 const Quiz = () => {
+  let { id } = useParams();
   const [currentQuizCounter, setQuizCounter] = useState(0);
   const [userAnswer, setUserAnswer] = useState([]);
   const [lastQuestion, setLastQuestion] = useState(false);
-  const { quizzes } = test_quiz;
+  const { quizzes } = test_quiz[id - 1];
   const { title, quiz_data, answer_data } = quizzes[currentQuizCounter];
   const quizCount = quizzes.length;
 

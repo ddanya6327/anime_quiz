@@ -10,6 +10,7 @@ const QuizAnswer = ({ answer_data, handleAnswerItem }) => {
       <ul className={styles.answer_list}>
           {type === "multiple" && multiple.map((item, index) => <AnswerItem key={index} value={item} handleAnswerItem={handleAnswerItem} />)}
           {type === "ox" && <AnswerOx handleAnswerItem={handleAnswerItem} />}
+          {type === "oo" && <AnswerOx handleAnswerItem={handleAnswerItem} hidden />}
       </ul>
     </div>
   );
