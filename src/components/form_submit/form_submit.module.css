@@ -1,0 +1,13 @@
+.submit {
+  background-color: #3498db;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0.7em;
+  outline: 0;
+  width: 100%;
+}

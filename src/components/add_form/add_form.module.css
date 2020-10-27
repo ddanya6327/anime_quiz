@@ -1,0 +1,34 @@
+.form {
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  padding: 1em;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.title_label {
+  margin-right: 1em;
+}
+
+.title_input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  flex: 1;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+.answer_type {
+  display: flex;
+  text-align: center;
+}
+
+.type_radio {
+  flex: 1;
+  font-size: 1.1em;
+}

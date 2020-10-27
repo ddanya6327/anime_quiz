@@ -3,10 +3,12 @@ import styles from "./form_list.module.css";
 import AddForm from "../add_form/add_form";
 
 const FormList = () => {
-  return <div className={styles.list}>
+  return (
+    <ul className={styles.list}>
       <AddForm />
       <AddForm />
-  </div>;
+    </ul>
+  );
 };
 
 export default FormList;

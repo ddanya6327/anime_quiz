@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import styles from "./add_quiz_title.module.css";
 
 const AddQuizTitle = () => {
-    return (
-        <input type="text" placeholder="Quiz Title"/>
-    );
+  return (
+    <input className={styles.title} type="text" placeholder="Quiz Title" />
+  );
 };
 
 export default AddQuizTitle;
