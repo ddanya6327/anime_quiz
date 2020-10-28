@@ -14,7 +14,7 @@
   width: 95%;
 }
 
-.button {
+.submit {
   background-color: #5e5e5e;
   border: 0;
   border-radius: 5px;
@@ -25,4 +25,25 @@
   margin: 0.8em;
   outline: 0;
   padding: 0.6em 1em;
+}
+
+.answer_list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+.answer_button {
+  background-color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.3em 2em;
+  outline: 0;
+  padding: 0.5em;
+}
+
+.answer_button.selected {
+  color: white;
+  background-color: black;
 }
