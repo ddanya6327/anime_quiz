@@ -1,32 +1,30 @@
 import React, { useRef, useState } from "react";
 import styles from "./form_answer.module.css";
 
-const FormAnswer = ({ id, updateMultiple, updateAnswer }) => {
+const FormAnswer = ({
+  updateMultiple,
+  multipleList,
+  handleAddMultiple,
+  updateAnswer,
+}) => {
   const [multipleId, setMultipleId] = useState(3);
-  const [multipleList, setMultipleList] = useState({ 1: "", 2: "" });
-  const [answerId, setAnswerId] = useState();
+  const [answer, setAnswer] = useState();
 
   const addMultiple = () => {
-    setMultipleList({
-      ...multipleList,
-      [multipleId]: "",
-    });
+    handleAddMultiple(multipleId);
     setMultipleId(multipleId + 1);
   };
 
-  const onChange = (event) => {
-    setMultipleList({
-      ...multipleList,
-      [event.currentTarget.dataset.id]: event.currentTarget.value,
-    });
-    updateMultiple(multipleList);
-    updateAnswer(null);
-    setAnswerId(null);
+  const onChangeInput = (event) => {
+    const id = event.currentTarget.dataset.id;
+    const value = event.currentTarget.value;
+    updateMultiple(id, value);
   };
 
   const selectAnswer = (event) => {
-    updateAnswer(event.currentTarget.innerText);
-    setAnswerId(event.currentTarget.dataset.id);
+    const answer = event.currentTarget.innerText;
+    setAnswer(answer);
+    updateAnswer(answer);
   };
 
   return (
@@ -39,7 +37,7 @@ const FormAnswer = ({ id, updateMultiple, updateAnswer }) => {
               data-id={key}
               className={styles.answer}
               type="text"
-              onChange={onChange}
+              onChange={onChangeInput}
             />
           );
         })}
@@ -55,10 +53,9 @@ const FormAnswer = ({ id, updateMultiple, updateAnswer }) => {
               <button
                 key={key}
                 className={`${styles.answer_button} ${
-                  answerId === key ? styles.selected : ""
+                  answer === multipleList[key] ? styles.selected : ""
                 }`}
                 onClick={selectAnswer}
-                data-id={key}
               >
                 {multipleList[key]}
               </button>

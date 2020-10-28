@@ -1,0 +1,27 @@
+.answer_list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  margin: 0 auto;
+}
+
+.answer_button {
+  background-color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin: 0 0.5em;
+  outline: 0;
+  padding: 1em;
+}
+
+.answer_button.selected {
+  color: white;
+  background-color: black;
+}

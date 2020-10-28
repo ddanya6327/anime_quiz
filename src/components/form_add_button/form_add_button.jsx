@@ -1,7 +1,18 @@
 import React from "react";
 import styles from "./form_add_button.module.css";
 
-const FormAddButton = ({ addForm }) => {
+const FormAddButton = ({ addQuiz }) => {
+  const addForm = () => {
+    const form = {
+      title: "",
+      imageFile: "",
+      imageURL: "",
+      type: null,
+      multiple: null,
+      answer: null,
+    };
+    addQuiz(form);
+  };
   return (
     <div className={styles.add_button} onClick={addForm}>
       <div className={styles.plus}>+</div>

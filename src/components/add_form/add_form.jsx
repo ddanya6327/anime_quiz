@@ -1,48 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./add_form.module.css";
 import ImageInput from "../image_input/image_input";
 import FormAnswer from "../form_answer/form_answer";
+import FormOX from "../form_ox/form_ox";
 
-const AddForm = ({ id, form, handleForm }) => {
-  const [answerType, setAnswerType] = useState();
+const AddForm = ({ id, quiz, updateQuiz }) => {
+  const { title, imageFile, imageURL, type, multiple, answer } = quiz;
+  const [quizType, setQuizType] = useState();
+  const [multipleList, setMultipleList] = useState({ 1: "", 2: "" });
+
+  const onChange = (event) => {
+    updateQuiz(id, {
+      ...quiz,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
 
   const onChangeType = (event) => {
-    setAnswerType(event.target.value);
-    handleForm({
-      ...form,
+    setQuizType(event.target.value);
+    updateQuiz(id, {
+      ...quiz,
       type: event.target.value,
       multiple: null,
       answer: null,
     });
   };
 
-  const onChange = (event) => {
-    console.log('onchange');
-    const name = event.currentTarget.name;
-    const value = event.currentTarget.value;
-    handleForm({
-      ...form,
-      [name]: value,
+  const addMultiple = (id) => {
+    setMultipleList({
+      ...multipleList,
+      [id]: "",
     });
   };
 
-  const updateMultiple = (multiple) => {
-    console.log('updateMultiple');
-    handleForm({
-      ...form,
-      multiple: multiple,
+  const updateMultiple = (multipleId, value) => {
+    setMultipleList({
+      ...multipleList,
+      [multipleId]: value,
     });
-    console.log('updateMultiple');
   };
 
-  const updateAnswer = (answer) => {
-    console.log('updateAnswer');
-    console.log('answer',form)
-    handleForm(() => ({
-      ...form,
-      answer: answer,
-    }));
+  const updateAnswer = (value) => {
+    updateQuiz(id, {
+      ...quiz,
+      answer: value,
+    });
   }
+
+  useEffect(() => {
+    const updateMultiple = {
+      ...quiz,
+      multiple: multipleList,
+    };
+    updateQuiz(id, updateMultiple);
+  }, [multipleList]);
 
   return (
     <li className={styles.form}>
@@ -52,14 +63,14 @@ const AddForm = ({ id, form, handleForm }) => {
           name="title"
           className={styles.title_input}
           type="text"
+          value={title}
           onChange={onChange}
         />
       </div>
-      <ImageInput id={id} />
+      <ImageInput />
       <div className={styles.answer_type} onChange={onChangeType}>
         <label className={styles.type_radio}>
           <input
-            id={`type_multi_${id}`}
             className={styles.type_radio}
             type="radio"
             value="multiple"
@@ -68,19 +79,20 @@ const AddForm = ({ id, form, handleForm }) => {
           객관식
         </label>
         <label className={styles.type_radio}>
-          <input
-            id={`type_ox_${id}`}
-            type="radio"
-            value="ox"
-            name={`answer_${id}`}
-          />
+          <input type="radio" value="ox" name={`answer_${id}`} />
           OX
         </label>
       </div>
-      {answerType === "multiple" && (
-        <FormAnswer id={id} updateMultiple={updateMultiple} updateAnswer={updateAnswer} />
+      {quizType === "multiple" && (
+        <FormAnswer
+          id={id}
+          handleAddMultiple={addMultiple}
+          updateMultiple={updateMultiple}
+          multipleList={multipleList}
+          updateAnswer={updateAnswer}
+        />
       )}
-      {answerType === "ox" && "으어뚠어뚠"}
+      {quizType === "ox" && <FormOX updateAnswer={updateAnswer} />}
     </li>
   );
 };
