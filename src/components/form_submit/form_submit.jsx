@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./form_submit.module.css";
 
-const FormSubmit = ({ saveQuizzes }) => {
+const FormSubmit = ({ saveQuiz }) => {
   return (
-    <button className={styles.submit} onClick={saveQuizzes}>
+    <button className={styles.submit} onClick={saveQuiz}>
       퀴즈 등록
     </button>
   );

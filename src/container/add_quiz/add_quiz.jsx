@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./add_quiz.module.css";
 import Header from "../header/header";
 import AddQuizTitle from "../../components/add_quiz_title/add_quiz_title";
@@ -7,19 +7,13 @@ import FormSubmit from "../../components/form_submit/form_submit";
 import FormAddButton from "../../components/form_add_button/form_add_button";
 
 const AddQuiz = () => {
-  const test = {
-    1: {
-      "title": "이 퀴즈는?",
-      "imageFile": "ImageFile",
-      "imageURL": "abc",
-      "type": "ox",
-      "multiple": null,
-      "answer": "o",
-    }
+  const [quizTitle, setQuizTitle] = useState('');
+  const [quizzes, setQuizzes] = useState({});
+  const [quizId, setQuizId] = useState(1);
+
+  const addQuizTitle = (value) => {
+    setQuizTitle(value);
   }
-  const [quizzes, setQuizzes] = useState(test);
-  const [quizId, setQuizId] = useState(2);
-  console.log(quizzes)
 
   const addQuiz = (quiz) => {
     setQuizzes({
@@ -36,14 +30,23 @@ const AddQuiz = () => {
     })
   }
 
+  const saveQuiz = () => {
+    const quizData = {
+      title: quizTitle,
+      created_at: Date.now(),
+      user_name: 'test',
+      quizzes: quizzes,
+    }
+  }
+
   return (
     <section className={styles.add_quiz}>
       <Header />
       <div className={styles.main}>
-        <AddQuizTitle />
+        <AddQuizTitle quizTitle={quizTitle} addQuizTitle={addQuizTitle} />
         <FormList quizzes={quizzes} updateQuiz={updateQuiz} />
         <FormAddButton addQuiz={addQuiz} />
-        <FormSubmit />
+        <FormSubmit saveQuiz={saveQuiz} />
       </div>
     </section>
   );
