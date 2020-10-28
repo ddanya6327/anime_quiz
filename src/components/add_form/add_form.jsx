@@ -5,7 +5,7 @@ import FormAnswer from "../form_answer/form_answer";
 import FormOX from "../form_ox/form_ox";
 
 const AddForm = ({ id, quiz, updateQuiz }) => {
-  const { title, imageFile, imageURL, type, multiple, answer } = quiz;
+  const { title } = quiz;
   const [quizType, setQuizType] = useState();
   const [multipleList, setMultipleList] = useState({ 1: "", 2: "" });
 
@@ -45,9 +45,9 @@ const AddForm = ({ id, quiz, updateQuiz }) => {
       ...quiz,
       answer: value,
     });
-  }
+  };
 
-  useEffect(() => {
+  useEffect(() => { /* eslint-disable */
     const updateMultiple = {
       ...quiz,
       multiple: multipleList,

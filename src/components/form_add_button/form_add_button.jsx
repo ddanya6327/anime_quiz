@@ -16,6 +16,7 @@ const FormAddButton = ({ addQuiz }) => {
 
   useEffect(() => {
     addForm();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
