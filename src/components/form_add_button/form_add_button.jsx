@@ -5,7 +5,7 @@ const FormAddButton = ({ addQuiz }) => {
   const addForm = () => {
     const form = {
       title: "",
-      imageFile: "",
+      imageName: "",
       imageURL: "",
       type: null,
       multiple: null,

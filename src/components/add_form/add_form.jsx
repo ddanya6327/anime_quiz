@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./add_form.module.css";
-import ImageInput from "../image_input/image_input";
 import FormAnswer from "../form_answer/form_answer";
 import FormOX from "../form_ox/form_ox";
 
-const AddForm = ({ id, quiz, updateQuiz }) => {
-  const { title } = quiz;
+const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
+  console.log(quiz);
+  const { title, imageName } = quiz;
   const [quizType, setQuizType] = useState();
   const [multipleList, setMultipleList] = useState({ 1: "", 2: "" });
 
@@ -47,7 +47,16 @@ const AddForm = ({ id, quiz, updateQuiz }) => {
     });
   };
 
-  useEffect(() => { /* eslint-disable */
+  const updateFile = (file) => {
+    updateQuiz(id, {
+      ...quiz,
+      imageName: file.name,
+      imageURL: file.url,
+    });
+  };
+
+  useEffect(() => {
+    /* eslint-disable */
     const updateMultiple = {
       ...quiz,
       multiple: multipleList,
@@ -67,7 +76,7 @@ const AddForm = ({ id, quiz, updateQuiz }) => {
           onChange={onChange}
         />
       </div>
-      <ImageInput />
+      <FileInput imageName={imageName} onFileChange={updateFile} />
       <div className={styles.answer_type} onChange={onChangeType}>
         <label className={styles.type_radio}>
           <input

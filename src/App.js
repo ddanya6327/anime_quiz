@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import List from "./container/list/list";
 import AddQuiz from "./container/add_quiz/add_quiz";
 
-function App() {
+function App({ FileInput }) {
   return (
     <div className="App">
       <Router>
@@ -20,7 +20,7 @@ function App() {
             <Quiz />
           </Route>
           <Route path="/add">
-            <AddQuiz />
+            <AddQuiz FileInput={FileInput} />
           </Route>
         </Switch>
       </Router>

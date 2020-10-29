@@ -6,7 +6,7 @@ import FormList from "../../components/form_list/form_list";
 import FormSubmit from "../../components/form_submit/form_submit";
 import FormAddButton from "../../components/form_add_button/form_add_button";
 
-const AddQuiz = () => {
+const AddQuiz = ({ FileInput }) => {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizzes, setQuizzes] = useState({});
   const [quizId, setQuizId] = useState(1);
@@ -30,7 +30,8 @@ const AddQuiz = () => {
     });
   };
 
-  const saveQuiz = () => { /* eslint-disable no-unused-vars */
+  const saveQuiz = () => {
+    /* eslint-disable no-unused-vars */
     const quizData = {
       title: quizTitle,
       created_at: Date.now(),
@@ -44,7 +45,11 @@ const AddQuiz = () => {
       <Header />
       <div className={styles.main}>
         <AddQuizTitle quizTitle={quizTitle} addQuizTitle={addQuizTitle} />
-        <FormList quizzes={quizzes} updateQuiz={updateQuiz} />
+        <FormList
+          quizzes={quizzes}
+          updateQuiz={updateQuiz}
+          FileInput={FileInput}
+        />
         <FormAddButton addQuiz={addQuiz} />
         <FormSubmit saveQuiz={saveQuiz} />
       </div>
