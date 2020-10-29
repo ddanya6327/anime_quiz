@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./list.module.css";
 import Header from "../header/header";
 import QuizList from "../../components/quiz_list/quiz_list";
-import quiz_list from "../../common/test_quiz/test_list1";
 
-const List = () => {
+const List = ({ quizRepository }) => {
+  const [quizList, setQuizList] = useState({});
+
+  useEffect(() => {
+    quizRepository.getQuiz(setQuizList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <section className={styles.quizList}>
       <Header />
-      <QuizList quizList={quiz_list} />
+      <QuizList quizList={quizList} />
     </section>
   );
 };

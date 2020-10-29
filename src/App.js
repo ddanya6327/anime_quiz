@@ -15,7 +15,7 @@ function App({ FileInput, quizRepository }) {
             <Main />
           </Route>
           <Route path="/list">
-            <List />
+            <List quizRepository={quizRepository} />
           </Route>
           <Route path="/quiz/:id">
             <Quiz />
