@@ -4,10 +4,10 @@ import FormAnswer from "../form_answer/form_answer";
 import FormOX from "../form_ox/form_ox";
 
 const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
-  console.log(quiz);
+  console.log("add form", quiz);
   const { title, imageName } = quiz;
   const [quizType, setQuizType] = useState();
-  const [multipleList, setMultipleList] = useState({ 1: "", 2: "" });
+  const [multipleList, setMultipleList] = useState({});
 
   const onChange = (event) => {
     updateQuiz(id, {
@@ -63,6 +63,15 @@ const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
     };
     updateQuiz(id, updateMultiple);
   }, [multipleList]);
+
+  useEffect(() => {
+    if (quizType === "multiple") {
+      setMultipleList({
+        1: "",
+        2: "",
+      });
+    }
+  }, [quizType]);
 
   return (
     <li className={styles.form}>
