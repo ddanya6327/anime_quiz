@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./add_quiz.module.css";
 import Header from "../header/header";
 import AddQuizTitle from "../../components/add_quiz_title/add_quiz_title";
@@ -6,10 +7,11 @@ import FormList from "../../components/form_list/form_list";
 import FormSubmit from "../../components/form_submit/form_submit";
 import FormAddButton from "../../components/form_add_button/form_add_button";
 
-const AddQuiz = ({ FileInput }) => {
+const AddQuiz = ({ FileInput, quizRepository }) => {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizzes, setQuizzes] = useState({});
   const [quizId, setQuizId] = useState(1);
+  const history = useHistory();
 
   const addQuizTitle = (value) => {
     setQuizTitle(value);
@@ -30,14 +32,16 @@ const AddQuiz = ({ FileInput }) => {
     });
   };
 
-  const saveQuiz = () => {
-    /* eslint-disable no-unused-vars */
+  const saveQuiz = async () => {
     const quizData = {
+      id: Date.now(),
       title: quizTitle,
       created_at: Date.now(),
       user_name: "test",
       quizzes: quizzes,
     };
+    await quizRepository.saveQuiz(quizData);
+    history.push("/");
   };
 
   return (

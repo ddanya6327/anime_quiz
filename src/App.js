@@ -1,17 +1,18 @@
 import React from "react";
 import "./App.css";
-import Quiz from "./container/quiz/quiz";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Quiz from "./container/quiz/quiz";
 import List from "./container/list/list";
 import AddQuiz from "./container/add_quiz/add_quiz";
+import Main from "./container/main/main";
 
-function App({ FileInput }) {
+function App({ FileInput, quizRepository }) {
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path="/">
-            <List />
+            <Main />
           </Route>
           <Route path="/list">
             <List />
@@ -20,7 +21,7 @@ function App({ FileInput }) {
             <Quiz />
           </Route>
           <Route path="/add">
-            <AddQuiz FileInput={FileInput} />
+            <AddQuiz FileInput={FileInput} quizRepository={quizRepository} />
           </Route>
         </Switch>
       </Router>
