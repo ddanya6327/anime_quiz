@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ListItem = ({ item }) => {
   const { id, title, quizzes } = item;
-  const thumbnail = quizzes[1].imageURL;
+  const thumbnail = quizzes[0] ? quizzes[0].imageURL : "/images/no_images.jpg";
 
   return (
     <li className={styles.item}>

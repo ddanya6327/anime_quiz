@@ -7,7 +7,7 @@ const List = ({ quizRepository }) => {
   const [quizList, setQuizList] = useState({});
 
   useEffect(() => {
-    quizRepository.getQuiz(setQuizList);
+    quizRepository.getQuizList(setQuizList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -10,7 +10,7 @@ import FormAddButton from "../../components/form_add_button/form_add_button";
 const AddQuiz = ({ FileInput, quizRepository }) => {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizzes, setQuizzes] = useState({});
-  const [quizId, setQuizId] = useState(1);
+  const [quizId, setQuizId] = useState(0);
   const history = useHistory();
 
   const addQuizTitle = (value) => {

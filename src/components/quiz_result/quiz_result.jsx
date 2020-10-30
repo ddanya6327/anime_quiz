@@ -3,7 +3,7 @@ import styles from "./quiz_result.module.css";
 import { Link } from "react-router-dom";
 
 const QuizResult = ({ userAnswer, quizCount, quizzes }) => {
-  const answers = quizzes.map((item) => item["answer_data"]["answer"]);
+  const answers = quizzes.map((item) => item["answer"]);
   const scoring = userAnswer.reduce((currentPoint, userAnswer, index) => {
     const checkAnswer = userAnswer === answers[index] ? 1 : 0;
     return currentPoint + checkAnswer;
