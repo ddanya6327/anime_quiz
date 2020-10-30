@@ -2,10 +2,16 @@ import { firebaseDatabase } from "./firebase";
 
 class QuizRepository {
   getQuizList(onUpdate) {
-    const ref = firebaseDatabase.ref(`quiz`);
+    const ref = firebaseDatabase.ref(`quiz`).orderByValue();
     ref.on("value", (snapshot) => {
       const value = snapshot.val();
-      value && onUpdate(value);
+      const descending = {};
+      Object.keys(value)
+        .sort((a, b) => b - a)
+        .forEach((key) => {
+          descending[key] = value[key];
+        });
+      value && onUpdate(descending);
     });
     return () => ref.off();
   }
