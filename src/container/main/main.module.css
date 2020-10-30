@@ -1,3 +1,25 @@
 .main {
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.contents {
+  flex: 1;
+  text-align: center;
+}
+
+.mainButton {
+  flex: 1;
+  width: 40%;
+  height: 30%;
+  background-color: white;
+  cursor: pointer;
+  border: 2px solid black;
+  font-size: 1em;
+  margin: 1em 0.5em;
+}
+
+.mainButton:hover {
+  background-color: lightcyan;
 }

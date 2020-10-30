@@ -5,7 +5,6 @@ import QuizList from "../../components/quiz_list/quiz_list";
 
 const List = ({ quizRepository }) => {
   const [quizList, setQuizList] = useState({});
-  console.log(Object.keys(quizList).length);
 
   useEffect(() => {
     quizRepository.getQuizList(setQuizList);
