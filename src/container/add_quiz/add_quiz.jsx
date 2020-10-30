@@ -11,10 +11,15 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizzes, setQuizzes] = useState({});
   const [quizId, setQuizId] = useState(0);
+  const [userName, setUserName] = useState("");
   const history = useHistory();
 
   const addQuizTitle = (value) => {
     setQuizTitle(value);
+  };
+
+  const updateUserName = (value) => {
+    setUserName(value);
   };
 
   const addQuiz = (quiz) => {
@@ -37,7 +42,7 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
       id: Date.now(),
       title: quizTitle,
       created_at: Date.now(),
-      user_name: "test",
+      user_name: userName,
       quizzes: quizzes,
     };
     await quizRepository.saveQuiz(quizData);
@@ -48,7 +53,11 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
     <section className={styles.add_quiz}>
       <Header />
       <div className={styles.main}>
-        <AddQuizTitle quizTitle={quizTitle} addQuizTitle={addQuizTitle} />
+        <AddQuizTitle
+          quizTitle={quizTitle}
+          addQuizTitle={addQuizTitle}
+          updateUserName={updateUserName}
+        />
         <FormList
           quizzes={quizzes}
           updateQuiz={updateQuiz}

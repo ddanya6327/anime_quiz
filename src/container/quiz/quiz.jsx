@@ -62,7 +62,7 @@ const Quiz = ({ quizRepository }) => {
               />
             </>
           ))}
-        {!quizzes && "Loading.."}
+        {!quizzes && <div className={styles.loading}> </div>}
       </div>
     </section>
   );

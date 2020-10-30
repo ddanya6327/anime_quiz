@@ -3,7 +3,23 @@
   border-radius: 5px;
   font-size: 1.5em;
   outline: 0;
-  margin-bottom: 0.5em;
   padding: 5px;
   width: 100%;
+}
+
+.writer {
+  display: flex;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  align-items: center;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  user-select: none;
+}
+
+.writer_input {
+  border: 0;
+  flex: 1;
+  padding: 0.5em;
+  margin-left: 0.5em;
 }

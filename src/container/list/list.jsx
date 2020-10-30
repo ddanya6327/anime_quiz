@@ -5,6 +5,7 @@ import QuizList from "../../components/quiz_list/quiz_list";
 
 const List = ({ quizRepository }) => {
   const [quizList, setQuizList] = useState({});
+  console.log(Object.keys(quizList).length);
 
   useEffect(() => {
     quizRepository.getQuizList(setQuizList);
@@ -14,7 +15,13 @@ const List = ({ quizRepository }) => {
   return (
     <section className={styles.quizList}>
       <Header />
-      <QuizList quizList={quizList} />
+      <div className={styles.main}>
+        {Object.keys(quizList).length ? (
+          <QuizList quizList={quizList} />
+        ) : (
+          <div className={styles.loading}> </div>
+        )}
+      </div>
     </section>
   );
 };

@@ -7,8 +7,14 @@ const QuizDetail = ({ quiz_data }) => {
 
   return (
     <div className={styles.detail}>
-      {imageURL && (
+      {imageURL ? (
         <img className={styles.quiz_image} src={imageURL} alt="quiz" />
+      ) : (
+        <img
+          className={styles.quiz_image}
+          src="/images/no_images.jpg"
+          alt="quiz"
+        />
       )}
       {videoURL && (
         // eslint-disable-next-line
