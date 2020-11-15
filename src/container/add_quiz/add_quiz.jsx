@@ -81,10 +81,10 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
       const formErrors = [];
 
       if (!title) {
-        formErrors.push("title");
+        formErrors.push("Quiz Title");
       }
       if (!type) {
-        formErrors.push("type");
+        formErrors.push("Quiz Type");
       }
 
       if (type && type === "multiple") {
@@ -96,17 +96,17 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
           }
         });
         if (error) {
-          formErrors.push("multiple");
+          formErrors.push("Quiz Multiple");
         }
       }
 
       if (!answer) {
-        formErrors.push("answer");
+        formErrors.push("Quiz Answer");
       }
 
       updateQuizzes[key]["errors"] = formErrors;
-      if (formErrors.length > 0 && !errors.includes("form")) {
-        errors.push("form");
+      if (formErrors.length > 0 && !errors.includes("Form")) {
+        errors.push("Form");
       }
     });
     setQuizzes(updateQuizzes);

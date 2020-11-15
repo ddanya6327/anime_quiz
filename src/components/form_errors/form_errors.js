@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./errors.module.css";
+import styles from "./form_errors.module.css";
 
-const Errors = ({ errors }) => {
+const FormErrors = ({ errors }) => {
   return (
     <div className={styles.errors}>
-      다음 항목을 확인 해주세요.
       <ul className={styles.error_list}>
         {errors.map((key, index) => (
           <li key={index}>{key}</li>
@@ -14,4 +13,4 @@ const Errors = ({ errors }) => {
   );
 };
 
-export default Errors;
+export default FormErrors;

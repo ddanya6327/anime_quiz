@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./add_form.module.css";
 import FormAnswer from "../form_answer/form_answer";
 import FormOX from "../form_ox/form_ox";
+import FormErrors from "../form_errors/form_errors";
 
 const AddForm = ({ id, quiz, updateQuiz, deleteQuiz, FileInput }) => {
-  const { title, imageName } = quiz;
+  const { title, imageName, errors } = quiz;
   const [quizType, setQuizType] = useState();
   const [multipleList, setMultipleList] = useState({});
 
@@ -78,6 +79,7 @@ const AddForm = ({ id, quiz, updateQuiz, deleteQuiz, FileInput }) => {
 
   return (
     <li className={styles.form}>
+      {errors.length > 0 && <FormErrors errors={errors} />}
       <div className={styles.delete_btn} onClick={handleDelete}>
         Ｘ
       </div>
