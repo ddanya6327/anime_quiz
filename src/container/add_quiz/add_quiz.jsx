@@ -37,6 +37,14 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
     });
   };
 
+  const deleteQuiz = (id) => {
+    setQuizzes(() => {
+      const quizzesCopy = { ...quizzes };
+      delete quizzesCopy[id];
+      return quizzesCopy;
+    });
+  };
+
   const saveQuiz = async () => {
     const quizData = {
       id: Date.now(),
@@ -61,6 +69,7 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
         <FormList
           quizzes={quizzes}
           updateQuiz={updateQuiz}
+          deleteQuiz={deleteQuiz}
           FileInput={FileInput}
         />
         <FormAddButton addQuiz={addQuiz} />

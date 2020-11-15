@@ -3,7 +3,7 @@ import styles from "./add_form.module.css";
 import FormAnswer from "../form_answer/form_answer";
 import FormOX from "../form_ox/form_ox";
 
-const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
+const AddForm = ({ id, quiz, updateQuiz, deleteQuiz, FileInput }) => {
   const { title, imageName } = quiz;
   const [quizType, setQuizType] = useState();
   const [multipleList, setMultipleList] = useState({});
@@ -54,6 +54,10 @@ const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
     });
   };
 
+  const handleDelete = () => {
+    deleteQuiz(id);
+  };
+
   useEffect(() => {
     /* eslint-disable */
     const updateMultiple = {
@@ -74,6 +78,9 @@ const AddForm = ({ id, quiz, updateQuiz, FileInput }) => {
 
   return (
     <li className={styles.form}>
+      <div className={styles.delete_btn} onClick={handleDelete}>
+        Ｘ
+      </div>
       <div className={styles.title}>
         <label className={styles.title_label}>문제</label>
         <input

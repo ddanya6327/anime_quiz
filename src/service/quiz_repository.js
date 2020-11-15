@@ -26,7 +26,17 @@ class QuizRepository {
   }
 
   async saveQuiz(quiz) {
-    await firebaseDatabase.ref(`quiz/${quiz.id}/`).set(quiz);
+    const quizzes = quiz["quizzes"];
+    const quizKeys = Object.keys(quizzes);
+    const quizzesSort = {};
+    quizKeys.forEach((quiz, index) => {
+      quizzesSort[index] = quizzes[quiz];
+    });
+    const sortedQuiz = {
+      ...quiz,
+      quizzes: quizzesSort,
+    };
+    await firebaseDatabase.ref(`quiz/${quiz.id}/`).set(sortedQuiz);
   }
 }
 
