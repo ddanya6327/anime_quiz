@@ -12,6 +12,7 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
   const [quizzes, setQuizzes] = useState({});
   const [quizId, setQuizId] = useState(0);
   const [userName, setUserName] = useState("");
+  const [errors, setErrors] = useState([]);
   const history = useHistory();
 
   const addQuizTitle = (value) => {
@@ -46,6 +47,10 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
   };
 
   const saveQuiz = async () => {
+    if (formValidate()) {
+      return;
+    }
+
     const quizData = {
       id: Date.now(),
       title: quizTitle,
@@ -55,6 +60,57 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
     };
     await quizRepository.saveQuiz(quizData);
     history.push("/");
+  };
+
+  const formValidate = () => {
+    const errors = [];
+
+    if (!quizTitle) {
+      errors.push("title");
+    }
+    if (!userName) {
+      errors.push("user");
+    }
+
+    const quizKeys = Object.keys(quizzes);
+    const updateQuizzes = { ...quizzes };
+
+    quizKeys.forEach((key) => {
+      const { title, answer, type, multiple } = quizzes[key];
+      const formErrors = [];
+
+      if (!title) {
+        formErrors.push("title");
+      }
+      if (!type) {
+        formErrors.push("type");
+      }
+
+      if (type && type === "multiple") {
+        const multipleKeys = Object.keys(multiple);
+        let error = false;
+        multipleKeys.forEach((key) => {
+          if (!multiple[key]) {
+            error = true;
+          }
+        });
+        if (error) {
+          formErrors.push("multiple");
+        }
+      }
+
+      if (!answer) {
+        formErrors.push("answer");
+      }
+
+      updateQuizzes[key]["errors"] = formErrors;
+      if (formErrors.length > 0 && !errors.includes("form")) {
+        errors.push("form");
+      }
+    });
+    setQuizzes(updateQuizzes);
+    setErrors(errors);
+    return errors.length > 0;
   };
 
   return (

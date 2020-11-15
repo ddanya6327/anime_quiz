@@ -10,6 +10,7 @@ const FormAddButton = ({ addQuiz }) => {
       type: null,
       multiple: null,
       answer: null,
+      errors: [],
     };
     addQuiz(form);
   };
