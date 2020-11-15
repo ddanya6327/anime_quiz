@@ -3,8 +3,7 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  background-color: whitesmoke;
-  height: 90vh;
+  height: 100%;
 }
 
 .title {
