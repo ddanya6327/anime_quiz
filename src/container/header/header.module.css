@@ -3,7 +3,13 @@
   padding: 0.5em;
   position: relative;
   text-align: left;
-  background-color: #61dafb;
+  border-bottom: 2px lightgray solid;
+  background-color: white;
+}
+
+.section {
+  margin: auto;
+  max-width: 1000px;
 }
 
 a {

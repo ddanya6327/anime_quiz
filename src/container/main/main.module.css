@@ -7,6 +7,9 @@
 .contents {
   flex: 1;
   text-align: center;
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .mainButton {

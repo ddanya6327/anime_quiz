@@ -14,7 +14,7 @@ const List = ({ quizRepository }) => {
   return (
     <section className={styles.quizList}>
       <Header />
-      <div className={styles.main}>
+      <div className={styles.contents}>
         {Object.keys(quizList).length ? (
           <QuizList quizList={quizList} />
         ) : (

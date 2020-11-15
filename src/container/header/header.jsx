@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Link to={"/"}>Header에오.</Link>
+      <div className={styles.section}>
+        <Link to={"/"}>
+          <img src="/images/logo.png" alt="logo" />
+        </Link>
+      </div>
     </header>
   );
 };
