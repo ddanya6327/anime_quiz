@@ -6,6 +6,7 @@ import AddQuizTitle from "../../components/add_quiz_title/add_quiz_title";
 import FormList from "../../components/form_list/form_list";
 import FormSubmit from "../../components/form_submit/form_submit";
 import FormAddButton from "../../components/form_add_button/form_add_button";
+import Errors from "../../components/add_errors/errors";
 
 const AddQuiz = ({ FileInput, quizRepository }) => {
   const [quizTitle, setQuizTitle] = useState("");
@@ -66,10 +67,10 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
     const errors = [];
 
     if (!quizTitle) {
-      errors.push("title");
+      errors.push("Quiz Title");
     }
     if (!userName) {
-      errors.push("user");
+      errors.push("User Name");
     }
 
     const quizKeys = Object.keys(quizzes);
@@ -117,6 +118,7 @@ const AddQuiz = ({ FileInput, quizRepository }) => {
     <section className={styles.add_quiz}>
       <Header />
       <div className={styles.main}>
+        {errors.length > 0 && <Errors errors={errors} />}
         <AddQuizTitle
           quizTitle={quizTitle}
           addQuizTitle={addQuizTitle}
