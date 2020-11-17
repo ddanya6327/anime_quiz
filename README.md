@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Anime Quiz
 
-## Available Scripts
+誰でも投稿できるWEBクイズサービス
 
-In the project directory, you can run:
+# Live Demo
 
-### `yarn start`
+[Live Demoはこちら](https://confident-beaver-cace88.netlify.app/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Demoですが、クイズの投稿はできます。
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+（削除機能は現在実装されていません。）
 
-### `yarn test`
+# Technologies used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- HTML/CSS
+- JavaScript (ES6+)
+- React
+- React Router
+- PostCSS
+- Firebase
+- Cloudinary API (image upload)
 
-### `yarn build`
+# Preview
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## クイズ
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![0_play_quiz](https://user-images.githubusercontent.com/69433959/99411915-7c488680-2937-11eb-87e2-c5edc27988a9.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## クイズの投稿（作成）
 
-### `yarn eject`
+![1_add_quiz](https://user-images.githubusercontent.com/69433959/99411924-7eaae080-2937-11eb-8a95-04e7a44058ea.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 画像をアップロード
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![2_image_upload](https://user-images.githubusercontent.com/69433959/99412107-b87be700-2937-11eb-842d-ba27da2642ed.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## クイズのタイプと正解を選ぶ（客観式、OX）
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![3_quiz_type](https://user-images.githubusercontent.com/69433959/99412121-b9ad1400-2937-11eb-8160-9752f06f2f00.gif)
 
-## Learn More
+## クイズ Form の追加と削除
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![4_add_form_delete_form](https://user-images.githubusercontent.com/69433959/99412128-bb76d780-2937-11eb-9b1f-24b61205809e.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## バリデーション
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![5_error_check](https://user-images.githubusercontent.com/69433959/99412132-bca80480-2937-11eb-9af5-71f304b0b017.gif)
