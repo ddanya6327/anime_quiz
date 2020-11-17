@@ -43,10 +43,10 @@ const FormAnswer = ({
         })}
       </div>
       <button className={styles.submit} onClick={addMultiple}>
-        항목추가
+        項目の追加
       </button>
       <div className={styles.answer_list}>
-        <h4>정답</h4>
+        <h4>クイズ正解</h4>
         {Object.keys(multipleList).map(
           (key) =>
             multipleList[key] && (

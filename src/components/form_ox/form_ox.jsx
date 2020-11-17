@@ -12,7 +12,7 @@ const FormOX = ({ updateAnswer }) => {
 
   return (
     <div className={styles.answer_list}>
-      <h4>정답</h4>
+      <h4>クイズ正解</h4>
       <div className={styles.buttons}>
         <button className={`${styles.answer_button} ${answer === "O" ? styles.selected : ''}`} onClick={selectAnswer}>O</button>
         <button className={`${styles.answer_button} ${answer === "X" ? styles.selected : ''}`} onClick={selectAnswer}>X</button>

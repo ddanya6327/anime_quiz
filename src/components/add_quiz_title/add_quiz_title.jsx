@@ -8,7 +8,7 @@ const AddQuizTitle = ({ quizTitle, addQuizTitle, updateUserName }) => {
 
   const onChangeUserName = (event) => {
     updateUserName(event.currentTarget.value);
-  }
+  };
 
   return (
     <>
@@ -16,14 +16,15 @@ const AddQuizTitle = ({ quizTitle, addQuizTitle, updateUserName }) => {
         className={styles.title}
         value={quizTitle}
         type="text"
-        placeholder="퀴즈 제목을 입력해주세요."
+        placeholder="クイズタイトルを入力してください"
         onChange={onChange}
       />
       <label className={styles.writer}>
-        작성자 :
+        投稿者 :
         <input
           className={styles.writer_input}
           type="text"
+          placeholder="投稿者を入力してください"
           onChange={onChangeUserName}
         />
       </label>

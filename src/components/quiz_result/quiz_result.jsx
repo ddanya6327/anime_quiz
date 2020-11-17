@@ -11,7 +11,7 @@ const QuizResult = ({ userAnswer, quizCount, quizzes }) => {
 
   return (
     <section className={styles.result}>
-      <h1 className={styles.title}>채점 결과</h1>
+      <h1 className={styles.title}>結果発表</h1>
       <ul className={styles.answer_list}>
         {userAnswer.map((item, index) => (
           <li className={styles.answer_item} key={index}>
@@ -23,10 +23,10 @@ const QuizResult = ({ userAnswer, quizCount, quizzes }) => {
         ))}
       </ul>
       <h3 className={styles.score}>
-        {scoring}/{quizCount}
+        正解 {scoring}/{quizCount}
       </h3>
       <Link to={"/list"}>
-        <button className={styles.backButton}>메인으로</button>
+        <button className={styles.backButton}>リストに戻る</button>
       </Link>
     </section>
   );

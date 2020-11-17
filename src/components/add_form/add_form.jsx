@@ -84,7 +84,7 @@ const AddForm = ({ id, quiz, updateQuiz, deleteQuiz, FileInput }) => {
         Ｘ
       </div>
       <div className={styles.title}>
-        <label className={styles.title_label}>문제</label>
+        <label className={styles.title_label}>問題</label>
         <input
           name="title"
           className={styles.title_input}
@@ -102,7 +102,7 @@ const AddForm = ({ id, quiz, updateQuiz, deleteQuiz, FileInput }) => {
             value="multiple"
             name={`answer_${id}`}
           />
-          객관식
+          客観式
         </label>
         <label className={styles.type_radio}>
           <input type="radio" value="ox" name={`answer_${id}`} />

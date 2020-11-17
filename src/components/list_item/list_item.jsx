@@ -19,7 +19,7 @@ const ListItem = ({ item }) => {
       <p className={styles.user_name}>{user_name}</p>
       <div>
         <Link to={`/quiz/${id}`}>
-          <button className={styles.button}>퀴즈 시작</button>
+          <button className={styles.button}>クイズ開始</button>
         </Link>
       </div>
     </li>

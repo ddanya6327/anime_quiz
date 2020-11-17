@@ -36,7 +36,7 @@ const ImageInput = ({ imageUploader, imageName, onFileChange }) => {
           }`}
           onClick={onButtonClick}
         >
-          {imageName ? `${imageName} 업로드 완료!` : "이미지 첨부하기"}
+          {imageName ? `${imageName} Completed Upload!` : "Upload Image"}
         </button>
       )}
       {loading && <div className={styles.loading}> </div>}
