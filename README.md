@@ -2,14 +2,6 @@
 
 誰でも投稿できるWEBクイズサービス
 
-# Live Demo
-
-[Live Demoはこちら](https://confident-beaver-cace88.netlify.app/)
-
-Demoですが、クイズの投稿はできます。
-
-（削除機能は現在実装されていません。）
-
 # Technologies used
 
 - HTML/CSS
