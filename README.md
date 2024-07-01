@@ -1,6 +1,7 @@
 # Anime Quiz
 
 誰でも投稿できるWEBクイズサービス
+開発期間： 2020/11 ~ 2020/11（2週）
 
 # Technologies used
 
